@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>Document Fragments Project</title>
+    <meta charset="utf-8">
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        img {
+            width: 70px;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+
+window.onload = init;
+
+var tweets = [
+    "When teaching math, it shouldn't just be: 'Answer this question:'. It should also be: 'Question this answer:'",
+    "Another reason to choose @OReillySchool: quizzes and projects graded by humans!",
+    "@OReillySchool Excellent! I love the new APIs that came with it, as well as the new tags and attributes.",
+    "That's great. I am really grateful for your program and will definitely continue to encourage folks to enroll in courses!"
+];
+
+// YOUR CODE HERE 
+function init() {
+    var addButton = document.getElementById("add");
+    addButton.onclick = addTweetToPage;
+}
+
+
+function addTweetToPage() {
+	var ul = document.getElementById("tweets");			// output to id="tweets"
+	var fragment = document.createDocumentFragment();		// create fragment node
+	for (var i = 0; i < tweets.length; i++) {	
+	  var li = document.createElement("li");				// create li element
+	  var x = document.createElement("IMG");				// create img element
+   	  x.setAttribute("src", "tweet.jpg");				// set img attribute to src
+    	  li.appendChild(x);						// append li Child with the img
+	  var spanTweet = document.createElement("span");			// create span element
+	  spanTweet.innerHTML = tweets[i];				// write the text to spanTweet.innerHTML
+	  li.appendChild(spanTweet);					// append li Child with spanTweet	
+          fragment.appendChild(li);        				// append fragment Child with li
+	}
+	ul.appendChild(fragment);					// move the fragment to the DOM
+}
+
+     
+    </script>
+</head>
+<body>
+<form>
+    <h1>Tweets</h1>
+    <input type="button" id="add" value="Add Tweets">
+    <ul id="tweets">
+        <li><img src="tweet.jpg"><span>This is my tweet</span></li>
+    </ul>
+</form>
+</body>
+</html>  

@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>JavaScript Libraries and Feature Detection</title>
+  <meta charset="utf-8">
+  <script src="Modernizr.js"></script>
+  <script>
+          Modernizr.load([
+            {
+                test: Modernizr.audio,
+                yep : "audio.js",
+                nope: "noAudio.js",
+                both: "features.js",
+                complete: function() {
+                  init();
+                }
+            }
+        ]);
+  </script>
+</head>
+<body>
+    <ul id="features">
+    </ul> 
+</body>
+</html>

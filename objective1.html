@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Introduction to JSON</title>
+  <meta charset="utf-8">
+  <script>
+  // set up function Play with various data types: strings, a numbers, an array, and a boolean
+function Play(name, author, yearWritten, mainCharacters, oneAct) {
+  this.name = name;				// a string
+  this.author = author;				// a string
+  this.yearWritten = yearWritten;		// a number
+  this.mainCharacters = mainCharacters;		// an array
+  this.oneAct = oneAct;				// a boolean
+}
+ 
+window.onload = init;				// define window onload event to the function init
+
+function init() {				// define init which uses Play to creat a var then stringifys it then parses it
+  // define object
+  var macbeth = new Play("Macbeth", "Shakespeare", 1606, 
+  		["Macbeth", "Lady Macbeth", "Duncan", "Malcolm", "Donalbain", "Banquo", "Macduff"], false);
+  var macbethJSON = JSON.stringify(macbeth);	// stringify object with JSON.stringify
+  console.log(macbethJSON);			// write the output to the console
+  
+  var altMacbeth = JSON.parse(macbethJSON);	// parse the object with JSON.parse
+  console.log(altMacbeth);			// write the output to the console
+}
+  </script>
+</head>
+<body>
+
+</body>
+</html>
